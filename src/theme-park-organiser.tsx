@@ -1262,6 +1262,8 @@ export default function App() {
       try {
         map = await fetchFromWorker(wUrl, parkQtId);
         simulated = false;
+        const rideCount = Object.keys(map).length;
+        if (rideCount > 0) alert("✅ Live! " + rideCount + " rides. E.g. " + Object.keys(map)[0] + " = " + Object.values(map)[0].wait + "min");
       } catch(e) {
         map = simulateQueues(rideList);
         simulated = true;
